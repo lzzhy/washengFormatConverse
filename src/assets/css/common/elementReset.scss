@@ -1,0 +1,17 @@
+:deep(.el-dropdown-menu__item) {
+  background-color: black;
+  color: #fff;
+}
+:deep(.el-dropdown-menu__item--divided:before) {
+  background-color: black;
+}
+:deep(.el-dropdown-menu__item--divided) {
+  border-color: #333;
+}
+.dropdown-menu {
+  background: black !important;
+}
+:deep(.el-dropdown-menu__item:not(.is-disabled):focus) {
+  background-color: #333;
+  color: #fff;
+}

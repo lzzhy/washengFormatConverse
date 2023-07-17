@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>支付成功</title>
+    <g id="Nearhub白板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="支付成功" fill="#16AA68" fill-rule="nonzero">
+            <path d="M16,32 C7.16352,32 0,24.83648 0,16 C0,7.16352 7.16352,0 16,0 C24.83648,0 32,7.16352 32,16 C32,24.83648 24.83648,32 16,32 Z M8.87264,15.12736 L7.56384,16.87264 L14.5456,23.41824 L25.16352,11.3456 L24.1456,10.18176 L14.5456,20.07296 L8.87264,15.12736 L8.87264,15.12736 Z" id="形状"></path>
+        </g>
+    </g>
+</svg>

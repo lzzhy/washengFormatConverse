@@ -1,0 +1,17 @@
+import { Prop } from "@/services/model";
+export class FormState {
+  @Prop({ label: "项目id" })
+  id = "";
+
+  @Prop({ label: "渠道码名称", required: true })
+  name = "";
+
+  @Prop({ label: "渠道码描述" })
+  desc = "";
+
+  @Prop({ label: "渠道码过期时间" })
+  expires = "";
+
+  @Prop({ label: "备注" })
+  remark = "";
+}

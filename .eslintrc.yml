@@ -1,0 +1,66 @@
+root: true
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  # - eslint:recommended
+  - prettier
+  - plugin:vue/vue3-recommended
+  - plugin:prettier/recommended
+  - plugin:@typescript-eslint/recommended
+  - ./.eslintrc-auto-import.json
+parser: "vue-eslint-parser"
+parserOptions:
+  ecmaVersion: latest
+  parser: "@typescript-eslint/parser"
+  sourceType: module,
+  ecmaFeatures:
+    jsx: true
+plugins:
+  - vue
+  - "@typescript-eslint"
+  - prettier
+# overrides:
+#   - files:
+#       - "**/__tests__/*.{j,t}s?(x)"
+#       - "**/tests/unit/**/*.spec.{j,t}s?(x)"
+rules:
+  # indent:
+  #   - error
+  #   - 2
+  linebreak-style:
+    - 0
+    - windows
+  quotes:
+    - 0
+    - single
+  semi:
+    - error
+    - always
+  "@typescript-eslint/no-var-requires":
+    - 0
+  "@typescript-eslint/no-explicit-any":
+    - 0
+  "@typescript-eslint/explicit-module-boundary-types":
+    - 0
+  # "typescript-eslint/no-explicit-any":
+  #   - 0
+  "@typescript-eslint/no-unused-vars":
+    - 0
+  # "@typescript-eslint/no-unused-vars":
+  #   - "error"
+  #   - argsIgnorePattern: "^_"
+  #     varsIgnorePattern: "^_"
+  "no-unused-vars":
+    - 0
+    - argsIgnorePattern: "^_"
+      varsIgnorePattern: "^_"
+  prettier/prettier:
+    - error
+    - endOfLine: auto
+  vue/html-self-closing: 0
+  vue/max-attributes-per-line: 0
+  vue/singleline-html-element-content-newline: 0
+  vue/multi-word-component-names: 0
+  vue/no-v-html: 0

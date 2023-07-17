@@ -1,0 +1,7 @@
+{
+  "*.{js,ts,vue}": [
+    "vue3-i18n-cli transform",
+    "vue3-i18n-cli translate",
+    "npm run lint:fix"
+  ]
+}

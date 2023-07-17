@@ -1,0 +1,77 @@
+.login-box {
+
+  &__title {
+    color: #000;
+
+    &-logo {
+      // font-size: 47px;
+      // margin-bottom: 20px;
+    }
+
+    &-txt {
+      // font-size: 30px;
+    }
+  }
+}
+
+.login-form {
+  margin-top: 45px;
+  :deep() {
+    .el-form-item {
+      margin-bottom: 45px;
+    }
+    .el-input__wrapper {
+      box-shadow: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+      border-radius: 0;
+    }
+
+    // input 输入框，自动填充时，背景颜色问题
+    input:-internal-autofill-previewed,
+    input:-internal-autofill-selected {
+      -webkit-text-fill-color: #807c7c;
+      transition: background-color 5000s ease-out 0.5s;
+    }
+  }
+}
+
+.login-btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__link {
+    font-size: 18px;
+    font-weight: 400;
+    color: #000000;
+  }
+  
+  &__submit {
+    width: 158px;
+    height: 42px;
+    line-height: 42px;
+    background-color: #0A3EDB;
+    border: #0A3EDB;
+    font-weight: 400;
+    color: #FFFFFF;
+    font-size: 18px;
+  }
+}
+
+.wechat-img {
+  width: 24px;
+}
+
+.login-box {
+  :deep(.el-input__wrapper) {
+   padding: 0;
+   background: transparent;
+  }
+}
+
+// // 浏览器默认背景色
+// :deep(input){
+//   box-shadow: 0 0 0 1000px transparent inset;
+//   background-color: transparent !important;
+// }

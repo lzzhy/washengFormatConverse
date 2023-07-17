@@ -1,0 +1,49 @@
+<template>
+  <el-form ref="formRef" label-width="100px" :model="formState" :rules="formRules" :disabled="loading">
+    <el-form-item label="渠道码名称" prop="name">
+      <el-input v-model="formState.name" />
+    </el-form-item>
+    <el-form-item label="渠道码描述" prop="desc">
+      <el-input v-model="formState.desc" />
+    </el-form-item>
+    <el-form-item label="过期时间" prop="expires">
+      <el-input v-model="formState.expires" />
+    </el-form-item>
+    <el-form-item label="备注" prop="remark">
+      <el-input v-model="formState.remark" />
+    </el-form-item>
+  </el-form>
+</template>
+
+<script lang="ts" setup>
+import { apiChannelCodePost as apiAdd, apiChannelCodePatchById as apiUpdate } from "@/apis";
+import { ModalAction } from "@/components/Modal/src/hooks";
+import { FormState } from "./form.model";
+
+const props = defineProps<{ source?: FormState; loading?: boolean }>();
+
+
+const [{ formState, formRules, formRef }] = useFormContext(FormState, props.source);
+
+const { run: runPost } = useRequest({ service: apiAdd, manual: true, successMessage: "添加成功" });
+const { runPatch } = useRequest({ service: apiUpdate, manual: true, successMessage: "更新成功" });
+
+defineExpose({
+  async onConfirm({ handleClose, setLoading }: ModalAction) {
+    if (!formRef.value) return false;
+    setLoading(true);
+    try {
+      let [err] = await awaitWrap(formRef.value.validate());
+      if (err) return false;
+      if (props.source) {
+        runPatch && (await runPatch(formState.id, toRaw(formState)));
+      } else {
+        runPost && (await runPost(toRaw(formState)));
+      }
+      handleClose();
+    } finally {
+      setLoading(false);
+    }
+  },
+});
+</script>

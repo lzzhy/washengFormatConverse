@@ -1,0 +1,69 @@
+<template>
+  <div class="flex-1 p-8">
+    <section aria-label="search-section">
+      <div class="mb-5 flex">
+        <div class="max-w-xs">
+          <ElInput>
+            <template #prepend>
+              <el-button><IEpSearch></IEpSearch></el-button>
+            </template>
+          </ElInput>
+        </div>
+        <div class="flex justify-start">
+          <ElPopconfirm title="确认删除数据？" @confirm="handleDelete">
+            <template #reference>
+              <ElButton text type="primary" :disabled="!isInChecking">
+                <template #icon><IEpDelete></IEpDelete></template> 删除
+              </ElButton>
+            </template>
+          </ElPopconfirm>
+          <div>
+            <ElButton type="primary" text @click="handleCreate"> 创建{{pascalCase name}} </ElButton>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div>
+      <el-table ref="tableRef" v-loading="loading" :data="source" stripe @selection-change="handleSelectionChange">
+        <el-table-column type="selection" width="55" />
+        <el-table-column v-for="col in columns" :key="col.prop" v-bind="col"> </el-table-column>
+        <el-table-column fixed="right" label="Operations" width="240">
+          <template #default="{ row }">
+            <el-button link type="primary" size="small" @click="handleEdit(row)">编辑</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { useColumns } from "./{{kebabCase name}}.model";
+import { useMutipleChecked } from "./{{kebabCase name}}.services";
+import { apiChannelCodeBatchDeleteByIds as apiSourceBatchDeleteByIds, apiChannelCodeGet as apiSourceGet } from "@/apis";
+import Form from "./components/Form/index.vue";
+import { useMessage } from "@/hooks/useMessage";
+
+const { columns } = useColumns();
+
+const formState = reactive({});
+const tableRef = ref();
+const { handleSelectionChange, isInChecking, checkedList } = useMutipleChecked<any>(tableRef);
+
+const { data: source, loading, run } = useRequest({ service: apiSourceGet, defaultParams: formState });
+
+function handleCreate() {
+  Dialog.open(Form, { title: "新增{{pascalCase name}}", width: 600 }).then(() => run(formState));
+}
+
+const { run: runDelete } = useRequest({ service: apiSourceBatchDeleteByIds, manual: true, fullScreenLoading: true, successMessage: "删除成功" });
+async function handleDelete() {
+  let ids = checkedList.value.map((item) => item._id).join(",");
+  await runDelete({ ids: ids });
+  run(formState);
+}
+
+function handleEdit(row: any) {
+  Dialog.open(Form, { title: "编辑{{pascalCase name}}", width: 600 }, { source: { ...row, id: row._id } }).then(() => run(formState));
+}
+</script>

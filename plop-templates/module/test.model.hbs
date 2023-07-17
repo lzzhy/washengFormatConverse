@@ -1,0 +1,13 @@
+import { ElTableColumn } from "element-plus";
+type ColumnDefine = InstanceType<typeof ElTableColumn>;
+
+export const useColumns = () => {
+  const columns = ref<Partial<ColumnDefine>[]>([
+    {
+      label: "{{pascalCase name}}",
+      prop: "name",
+    }
+  ]);
+
+  return { columns };
+};

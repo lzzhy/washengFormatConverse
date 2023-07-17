@@ -1,0 +1,19 @@
+import type { ElTable } from "element-plus";
+import type { Ref } from "vue";
+/**多选操作 */
+export const useMutipleChecked = <T>(tableRef: Ref<InstanceType<typeof ElTable>>) => {
+  const checkedList = ref<T[]>([]);
+  const reset = () => {
+    // checkedList.value = [];
+    tableRef.value.clearSelection();
+  };
+
+  const handleSelectionChange = (val: T[]) => {
+    console.log("🚀 -> file: room-section.services.ts -> line 12 -> handleSelectionChange -> val", val);
+    checkedList.value = val as any;
+  };
+
+  const isInChecking = computed(() => checkedList.value.length > 0);
+
+  return { checkedList, handleSelectionChange, isInChecking, reset };
+};

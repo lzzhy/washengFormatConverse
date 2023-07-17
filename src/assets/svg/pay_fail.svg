@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>支付失败</title>
+    <g id="Nearhub白板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="支付失败" fill="#F4420A" fill-rule="nonzero">
+            <path d="M16,32 C7.16352,32 0,24.83648 0,16 C0,7.16352 7.16352,0 16,0 C24.83648,0 32,7.16352 32,16 C32,24.83648 24.83648,32 16,32 Z M16.0224,14.82816 L10.15424,8.96 L8.64,10.47424 L14.50816,16.3424 L8.64,22.21056 L10.15424,23.7248 L16.0224,17.85664 L21.89056,23.7248 L23.4048,22.21056 L17.53664,16.3424 L23.4048,10.47424 L21.89056,8.96 L16.0224,14.82816 Z" id="形状"></path>
+        </g>
+    </g>
+</svg>

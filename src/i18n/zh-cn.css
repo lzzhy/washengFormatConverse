@@ -1,0 +1,8 @@
+.lang_zh-cn {
+  font-family: SiYuanHeiTi;
+}
+
+@font-face {
+  font-family: SiYuanHeiTi;
+  src: url('../assets/fonts/SourceHanSansCN-Regular.otf');
+}

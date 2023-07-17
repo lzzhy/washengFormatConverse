@@ -1,0 +1,22 @@
+// 将tailwind base 优先注入 防止tailwind base 将 el-ui的样式重置掉
+@tailwind base;
+@import "./ui.scss";
+@import "./base.scss";
+@import "./transition/fade.scss";
+
+
+
+.hover_preview__host{
+    &:hover{
+        .hover_preview__target{
+            @apply opacity-100;
+        }
+    }
+}
+.hover_preview__target {
+    @apply absolute inset-0 rounded shadow-sm;
+    @apply opacity-0 transition-opacity;
+    @apply transform  duration-300;
+    @apply bg-[#FFA4A4] bg-opacity-20;
+    @apply flex items-center justify-center;
+}
